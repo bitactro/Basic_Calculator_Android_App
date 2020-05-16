@@ -1,54 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/relative1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="#FFEBEE">
+    android:background="#EDE7F6">
 
-<ImageView
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scaleType="centerCrop"
-    android:layout_alignParentTop="true"
-    android:layout_above="@id/l0"
-    android:src="@drawable/calculatorimage"/>
+    android:orientation="vertical"
+    android:background="#EDE7F6"
+
+    >
 
 
+     <TextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="Calculator"
+         android:textSize="50sp"
+         android:textStyle="italic"
+         android:textColor="#1DE9B6"
+         android:textAlignment="center"
+         android:layout_marginLeft="15dp"
+         android:layout_marginTop="20dp"
+         />
     <LinearLayout
         android:id="@+id/l0"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="#000000"
-        android:orientation="vertical">
+        android:background="#EDE7F6"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+        >
 
         <EditText
             android:id="@+id/edt1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="12dp"
-            android:background="#37474F"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="30dp"
+            android:background="#616161"
             android:inputType="text"
             android:padding="8dp"
-            android:textColor="#FFFFFF"
+            android:textColor="#ffffff"
             android:textSize="30sp" />
 
         <EditText
             android:id="@+id/edt2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="12dp"
-            android:background="#37474F"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+
+            android:background="#FFE0B2"
             android:inputType="text"
-            android:padding="8dp"
-            android:textColor="#FFFFFF"
-            android:textSize="30sp" />
+            android:padding="15dp"
+            android:textColor="#00C853"
+            android:textStyle="bold"
+            android:textSize="40sp" />
+        <ImageView
+            android:id="@+id/cut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="25dp"
+            android:src="@drawable/cut_24dp"
+            android:layout_gravity="right"
+            />
 
         <LinearLayout
             android:id="@+id/l1"
@@ -57,44 +81,44 @@
             android:layout_below="@id/edt1"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:background="#90A4AE"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/button1"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
 
-
+                android:textSize="15sp"
                 android:text="1" />
 
             <Button
                 android:id="@+id/button2"
 
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:textSize="15sp"
                 android:text="2" />
 
             <Button
                 android:id="@+id/button3"
 
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:textSize="15sp"
                 android:text="3" />
 
             <Button
                 android:id="@+id/buttonAdd"
 
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="3"
-
+                android:textSize="15sp"
                 android:text="+"
 
 
@@ -108,7 +132,7 @@
             android:layout_below="@id/l1"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:background="#90A4AE"
             android:orientation="horizontal">
 
@@ -116,35 +140,35 @@
                 android:id="@+id/button4"
 
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:textSize="15sp"
                 android:text="4" />
 
             <Button
                 android:id="@+id/button5"
 
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_alignBottom="@+id/button4"
-                android:layout_weight="1"
-
+                android:layout_weight="2"
+                android:textSize="15sp"
                 android:text="5" />
 
             <Button
                 android:id="@+id/button6"
 
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:textSize="15sp"
                 android:text="6" />
 
             <Button
                 android:id="@+id/buttonSub"
-
+                android:textSize="15sp"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="3"
                 android:text="-"
                 android:textStyle="bold" />
@@ -157,16 +181,16 @@
             android:layout_below="@id/l2"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:background="#90A4AE"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/button7"
-
+                android:textSize="15sp"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
 
                 android:text="7" />
 
@@ -174,18 +198,18 @@
                 android:id="@+id/button8"
 
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:textSize="15sp"
                 android:text="8" />
 
             <Button
                 android:id="@+id/button9"
 
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:textSize="15sp"
                 android:text="9" />
 
 
@@ -193,10 +217,11 @@
                 android:id="@+id/buttonMul"
 
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="3"
                 android:text="*"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="15sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -206,7 +231,7 @@
             android:layout_below="@id/l3"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:background="#90A4AE"
             android:orientation="horizontal">
 
@@ -214,38 +239,42 @@
                 android:id="@+id/button10"
 
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
 
 
-                android:text="." />
+                android:text="."
+                android:textSize="15sp"/>
 
             <Button
                 android:id="@+id/button0"
 
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
 
-                android:text="0" />
+                android:text="0"
+                android:textSize="15sp"/>
 
             <Button
                 android:id="@+id/buttonC"
 
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
 
-                android:text="C" />
+                android:text="C"
+                android:textSize="15sp"/>
 
             <Button
                 android:id="@+id/buttonDivision"
 
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="3"
                 android:text="/"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="15sp"/>
         </LinearLayout>
 
         <Button
@@ -253,22 +282,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/l4"
-            android:layout_marginLeft="100dp"
+            android:layout_marginLeft="50dp"
 
-            android:layout_marginTop="12dp"
-            android:layout_marginRight="100dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="50dp"
             android:layout_marginBottom="8dp"
-            android:background="#90A4AE"
-            android:text=" = "
+            android:background="#F1F8E9"
+            android:text=" Equals"
+            android:textColor="#BA68C8"
             android:textSize="20sp"
             android:textStyle="bold" />
 
     </LinearLayout>
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="fitCenter"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@id/l0"
-        android:src="@drawable/iconcalculator"/>
-</RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>
