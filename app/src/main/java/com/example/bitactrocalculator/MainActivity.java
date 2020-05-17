@@ -8,6 +8,9 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
@@ -55,7 +58,12 @@ public class MainActivity extends AppCompatActivity {
                  str=str+'1';
                  bitactroEditText.setText(str);
                  String ans=calculate(str);
-                 resultEditText.setText(ans);
+                BigDecimal b1=new BigDecimal(ans).stripTrailingZeros();
+                ans=b1.toString();
+                Double d=Double.parseDouble(ans);
+                DecimalFormat format=new DecimalFormat("0.######");
+                ans=format.format(d);
+                resultEditText.setText(ans);
 
 
 
@@ -71,6 +79,11 @@ public class MainActivity extends AppCompatActivity {
                 str=str+"2";
                 bitactroEditText.setText(str);
                 String ans=calculate(str);
+                BigDecimal b1=new BigDecimal(ans).stripTrailingZeros();
+                ans=b1.toString();
+                Double d=Double.parseDouble(ans);
+                DecimalFormat format=new DecimalFormat("0.######");
+                ans=format.format(d);
                 resultEditText.setText(ans);
 
 
@@ -84,6 +97,11 @@ public class MainActivity extends AppCompatActivity {
                 str=str+"3";
                 bitactroEditText.setText(str);
                 String ans=calculate(str);
+                BigDecimal b1=new BigDecimal(ans).stripTrailingZeros();
+                ans=b1.toString();
+                Double d=Double.parseDouble(ans);
+                DecimalFormat format=new DecimalFormat("0.#######");
+                ans=format.format(d);
                 resultEditText.setText(ans);
 
             }
@@ -95,6 +113,11 @@ public class MainActivity extends AppCompatActivity {
                 str=str+"4";
                 bitactroEditText.setText(str);
                 String ans=calculate(str);
+                BigDecimal b1=new BigDecimal(ans).stripTrailingZeros();
+                ans=b1.toString();
+                Double d=Double.parseDouble(ans);
+                DecimalFormat format=new DecimalFormat("0.######");
+                ans=format.format(d);
                 resultEditText.setText(ans);
 
             }
@@ -106,6 +129,11 @@ public class MainActivity extends AppCompatActivity {
                 str=str+'5';
                 bitactroEditText.setText(str);
                 String ans=calculate(str);
+                BigDecimal b1=new BigDecimal(ans).stripTrailingZeros();
+                ans=b1.toString();
+                Double d=Double.parseDouble(ans);
+                DecimalFormat format=new DecimalFormat("0.######");
+                ans=format.format(d);
                 resultEditText.setText(ans);
 
             }
@@ -117,6 +145,11 @@ public class MainActivity extends AppCompatActivity {
                 str=str+"6";
                 bitactroEditText.setText(str);
                 String ans=calculate(str);
+                BigDecimal b1=new BigDecimal(ans).stripTrailingZeros();
+                ans=b1.toString();
+                Double d=Double.parseDouble(ans);
+                DecimalFormat format=new DecimalFormat("0.######");
+                ans=format.format(d);
                 resultEditText.setText(ans);
 
             }
@@ -128,6 +161,11 @@ public class MainActivity extends AppCompatActivity {
                 str=str+"7";
                 bitactroEditText.setText(str);
                 String ans=calculate(str);
+                BigDecimal b1=new BigDecimal(ans).stripTrailingZeros();
+                ans=b1.toString();
+                Double d=Double.parseDouble(ans);
+                DecimalFormat format=new DecimalFormat("0.######");
+                ans=format.format(d);
                 resultEditText.setText(ans);
 
             }
@@ -138,6 +176,11 @@ public class MainActivity extends AppCompatActivity {
                 str=str+"8";
                 bitactroEditText.setText(str);
                 String ans=calculate(str);
+                BigDecimal b1=new BigDecimal(ans).stripTrailingZeros();
+                ans=b1.toString();
+                Double d=Double.parseDouble(ans);
+                DecimalFormat format=new DecimalFormat("0.######");
+                ans=format.format(d);
                 resultEditText.setText(ans);
 
             }
@@ -149,6 +192,11 @@ public class MainActivity extends AppCompatActivity {
                 str=str+"9";
                 bitactroEditText.setText(str);
                 String ans=calculate(str);
+                BigDecimal b1=new BigDecimal(ans).stripTrailingZeros();
+                ans=b1.toString();
+                Double d=Double.parseDouble(ans);
+                DecimalFormat format=new DecimalFormat("0.######");
+                ans=format.format(d);
                 resultEditText.setText(ans);
 
             }
@@ -193,6 +241,11 @@ public class MainActivity extends AppCompatActivity {
                 str+='0';
                 bitactroEditText.setText(str);
                 String ans=calculate(str);
+                BigDecimal b1=new BigDecimal(ans).stripTrailingZeros();
+                ans=b1.toString();
+                Double d=Double.parseDouble(ans);
+                DecimalFormat format=new DecimalFormat("0.######");
+                ans=format.format(d);
                 resultEditText.setText(ans);
 
             }
@@ -288,6 +341,8 @@ public class MainActivity extends AppCompatActivity {
 
           str=bitactroEditText.getText().toString();
           String ans=calculate(str);
+                BigDecimal b1=new BigDecimal(ans).stripTrailingZeros();
+                ans=b1.toString();
           resultEditText.setText(ans);
 
             }
@@ -305,7 +360,12 @@ public class MainActivity extends AppCompatActivity {
         button10.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                bitactroEditText.setText(str+".");
+                if(str.length()>0)
+                   if(validCheck(str))
+                      str=str+'.';
+
+
+                bitactroEditText.setText(str);
             }
         });
         clear.setOnClickListener(new View.OnClickListener() {
@@ -328,6 +388,8 @@ public class MainActivity extends AppCompatActivity {
     boolean validCheck(String S)
     {
         if(S==null)
+            return false;
+        else if(S.charAt(S.length()-1)=='.')
             return false;
         else if(S.charAt(S.length()-1)=='/'||S.charAt(S.length()-1)=='*'||S.charAt(S.length()-1)=='+'||S.charAt(S.length()-1)=='-')
             return false;
