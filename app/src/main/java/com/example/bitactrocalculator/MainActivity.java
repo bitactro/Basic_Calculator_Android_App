@@ -230,14 +230,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 str += '0';
-                String ans="";
+
 
                     bitactroEditText.setText(str);
-                    ans = calculate(str);
-                    if(ans!="-1117") {
-                        resultEditText.setText("Divide by Zero Error!");
-                        str = "";
-                        bitactroEditText.setText(str);
+                   String ans = calculate(str);
+
+
 
                         BigDecimal b1 = new BigDecimal(ans).stripTrailingZeros();
                         ans = b1.toString();
@@ -245,12 +243,9 @@ public class MainActivity extends AppCompatActivity {
                         DecimalFormat format = new DecimalFormat("0.######");
                         ans = format.format(d);
                         resultEditText.setText(ans);
-                    }
-                    else {
-                        resultEditText.setText("Divide By Zero Error!");
-                        bitactroEditText.setText("");
-                        str="";
-                    }
+
+
+
 
 
             }
@@ -414,7 +409,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    String calculate(String S) throws ArithmeticException {
+    String calculate(String S)  {
         String res = "";
 
             char c = S.charAt(S.length() - 1);
