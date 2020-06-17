@@ -6,13 +6,12 @@
     android:layout_height="match_parent"
     android:background="#EDE7F6"
     tools:context=".MainActivity">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_vertical"
-        android:background="#EDE7F6"
-        android:orientation="vertical">
+    >
+
 
 
         <LinearLayout
@@ -22,16 +21,19 @@
             android:layout_centerInParent="true"
             android:layout_gravity="center_vertical"
             android:background="#EDE7F6"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="15dp"
+            >
 
             <EditText
                 android:id="@+id/edt1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginBottom="5dp"
                 android:background="#616161"
                 android:cursorVisible="true"
                 android:focusable="false"
@@ -39,9 +41,17 @@
                 android:inputType="text"
                 android:padding="8dp"
                 android:textColor="#ffffff"
-                android:textSize="30sp"
-                />
-
+                android:textSize="40sp" />
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Result:"
+                 android:textSize="20sp"
+                 android:layout_marginTop="10dp"
+                 android:layout_marginLeft="10dp"
+                 android:textStyle="bold"
+                 android:textColor="#FF1744"
+                 />
             <TextView
                 android:id="@+id/edt2"
                 android:layout_width="match_parent"
@@ -67,16 +77,16 @@
                     android:layout_alignParentLeft="true"
                     android:layout_marginStart="15dp"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginBottom="25dp"
+                    android:layout_marginBottom="15dp"
                     android:src="@drawable/put_above_24dp" />
 
                 <TextView
                     android:id="@+id/use_result"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_toRightOf="@id/put_above"
                     android:text="Use Result"
                     android:textColor="#AA00FF"
@@ -90,11 +100,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="18dp"
-                    android:layout_marginBottom="25dp"
-                    android:src="@drawable/cut_35"
-                    />
+                    android:layout_marginBottom="15dp"
+                    android:src="@drawable/cut_35" />
 
             </RelativeLayout>
 
@@ -143,8 +152,8 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
-                    android:text="+"
                     android:background="#B2DFDB"
+                    android:text="+"
                     android:textColor="#DD2C00"
                     android:textSize="45sp"
                     android:textStyle="bold" />
@@ -312,5 +321,5 @@
 
         </LinearLayout>
 
-    </LinearLayout>
+</LinearLayout>
 </ScrollView>

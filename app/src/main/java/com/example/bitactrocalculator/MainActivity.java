@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9, buttonAdd, buttonSub, buttonDivision, buttonMul, button10, buttonC, buttonEqual;
     EditText bitactroEditText;
-            TextView resultEditText;
+    TextView resultEditText;
     ImageView clear, putabove;
     TextView useResult;
     float mValueOne, mValueTwo;
@@ -252,7 +252,10 @@ public class MainActivity extends AppCompatActivity {
                 String temp = str;
                 bitactroEditText.setText(str);
                 str = handleOperatorSymbols(str); //handling divide symbol
-                if (str.charAt(str.length() - 1) != '/') {
+                if (str.length() < 2) {
+
+                } else if (str.charAt(str.length() - 2) == '/') {
+
                 } else {
                     str = handleOperatorSymbols(str);
                     String ans = calculate(str);
@@ -337,7 +340,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
 
 
         buttonC.setOnClickListener(new View.OnClickListener() {
@@ -431,21 +433,44 @@ public class MainActivity extends AppCompatActivity {
 
     String calculate(String S) {
         String res = "";
+        int len = S.length() -1, count = 0, flag = 0,f=0;
+        while (len >= 0) {
+            if (S.charAt(len) == '+' || S.charAt(len) == '/' || S.charAt(len) == '*' || S.charAt(len) == '*') {
+                if (S.charAt(len) == '/') {
 
-        char c = S.charAt(S.length() - 1);
-        String exp;
-        if (c == '+' || c == '-' || c == '*' || c == '/') {
-            exp = S.substring(0, S.length() - 1);
-        } else exp = S;
-        ScriptEngine engine = new ScriptEngineManager().getEngineByName("rhino");
-        Object result = null;
-        try {
-            result = engine.eval(exp);
-            res = result.toString();
-        } catch (Exception e) {
-            res = "Error";
+                    if(S.charAt(S.length()-1)!='/') {
+                        String st = S.substring(len +1, S.length() );
+                        Double d = Double.parseDouble(st);
+                        if (d == 0) {
+                            S =S.substring(0,len);
+                            flag=1;
+                        }
+                    }
 
+                }
+                break;
+            }
+            count++;
+            len--;
         }
+
+
+
+                 char c = S.charAt(S.length() - 1);
+            String exp;
+            if (c == '+' || c == '-' || c == '*' || c == '/') {
+                exp = S.substring(0, S.length() - 1);
+            } else exp = S;
+            ScriptEngine engine = new ScriptEngineManager().getEngineByName("rhino");
+            Object result = null;
+            try {
+                result = engine.eval(exp);
+                res = result.toString();
+            } catch (Exception e) {
+                res = "Error";
+
+            }
+
 
 
         return res;
