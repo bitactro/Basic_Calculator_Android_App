@@ -230,27 +230,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 str += '0';
-                String ans="";
 
-                    bitactroEditText.setText(str);
-                    ans = calculate(str);
-                    if(ans!="-1117") {
-                        resultEditText.setText("Divide by Zero Error!");
-                        str = "";
-                        bitactroEditText.setText(str);
 
-                        BigDecimal b1 = new BigDecimal(ans).stripTrailingZeros();
-                        ans = b1.toString();
-                        Double d = Double.parseDouble(ans);
-                        DecimalFormat format = new DecimalFormat("0.######");
-                        ans = format.format(d);
-                        resultEditText.setText(ans);
-                    }
-                    else {
-                        resultEditText.setText("Divide By Zero Error!");
-                        bitactroEditText.setText("");
-                        str="";
-                    }
+                bitactroEditText.setText(str);
+                if (str.charAt(str.length() - 1) != '/') {
+                } else {
+                 String   ans = calculate(str);
+
+
+                    BigDecimal b1 = new BigDecimal(ans).stripTrailingZeros();
+                    ans = b1.toString();
+                    Double d = Double.parseDouble(ans);
+                    DecimalFormat format = new DecimalFormat("0.######");
+                    ans = format.format(d);
+                    resultEditText.setText(ans);
+                }
 
 
             }
@@ -414,23 +408,22 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    String calculate(String S) throws ArithmeticException {
+    String calculate(String S) {
         String res = "";
 
-            char c = S.charAt(S.length() - 1);
-            String exp;
-            if (c == '+' || c == '-' || c == '*' || c == '/') {
-                exp = S.substring(0, S.length() - 1);
-            } else exp = S;
-            ScriptEngine engine = new ScriptEngineManager().getEngineByName("rhino");
-            Object result = null;
-            try {
-                result = engine.eval(exp);
-                res = result.toString();
-            } catch (Exception e) {
-                res="-1117";
-            }
-
+        char c = S.charAt(S.length() - 1);
+        String exp;
+        if (c == '+' || c == '-' || c == '*' || c == '/') {
+            exp = S.substring(0, S.length() - 1);
+        } else exp = S;
+        ScriptEngine engine = new ScriptEngineManager().getEngineByName("rhino");
+        Object result = null;
+        try {
+            result = engine.eval(exp);
+            res = result.toString();
+        } catch (Exception e) {
+            res = "-1117";
+        }
 
 
         return res;
